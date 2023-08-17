@@ -8,7 +8,7 @@ export default {
 </script>
 
 <template>
-  <h1>Tarea</h1>
+  <h1>Tarea </h1>
 
 </template>
 
