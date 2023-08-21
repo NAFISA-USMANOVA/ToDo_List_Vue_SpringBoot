@@ -1,20 +1,25 @@
 <template>
-  <div>
-    <header><h1>Tarea diarias</h1></header>
+  <div class="app-container">
+    <header></header>
     <main></main>
-    <FooterToDo> </FooterToDo>
+    <FooterToDo />
   </div>
 </template>
 
-<script>
+<script setup>
 import FooterToDo from './components/FooterToDo.vue'
-
-export default {
-  name: 'App',
-  components: {
-    FooterToDo
-  }
-}
 </script>
 
-<style></style>
+export default { name: 'App', components: { FooterToDo } }
+
+<style>
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: vh;
+}
+
+main {
+  flex: 1;
+}
+</style>
