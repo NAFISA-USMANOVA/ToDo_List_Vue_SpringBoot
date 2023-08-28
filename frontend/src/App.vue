@@ -3,14 +3,14 @@ import { RouterView } from 'vue-router';
 
 
 import FooterToDo from './components/FooterToDo.vue';
-import FormView from './views/FormView.vue' ;
+// import FormView from './views/FormView.vue' ;
 
 
 export default {
   name: 'App',
   components: {
     FooterToDo,
-    FormView
+    // FormView
   }
 }
 </script>
@@ -21,7 +21,7 @@ export default {
       <RouterView />
     </main>
     <FooterToDo> </FooterToDo>
-    <FormView></FormView>
+    <!-- <FormView></FormView> -->
   </div>
 </template>
 
