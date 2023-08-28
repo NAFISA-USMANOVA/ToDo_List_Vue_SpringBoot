@@ -1,27 +1,27 @@
 <script>
 import { RouterView } from 'vue-router';
-
-
+import FormView from './views/FormView.vue';
 import FooterToDo from './components/FooterToDo.vue';
-// import FormView from './views/FormView.vue' ;
+
 
 
 export default {
   name: 'App',
   components: {
-    FooterToDo,
-    // FormView
+    FormView,
+    FooterToDo 
   }
 }
 </script>
 <template>
   <div>
-    <header><h1>Tarea diarias</h1></header>
+    <h1 class="display-4 text-center mt-5">TO DO LIST</h1>
     <main>
       <RouterView />
     </main>
+    
+    <FormView></FormView>
     <FooterToDo> </FooterToDo>
-    <!-- <FormView></FormView> -->
   </div>
 </template>
 
