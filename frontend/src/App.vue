@@ -1,18 +1,20 @@
 <script >
-import TaskToDo from './components/TaskToDo.vue';
+import HomeView from './views/HomeView.vue';
+
 
 export default {
   name: 'App',
   components: {
-  TaskToDo
-  }
+    HomeView
+}
 
 }
 </script>
 
 <template>
+  
   <div class="fondo">
-    <TaskToDo/>
+   <HomeView/> 
   </div>
   
   
@@ -22,7 +24,7 @@ export default {
 <style >
 
 .fondo {
-  background-image: url("./assets/starsfont.jpg");
+  background-image: url("./assets/fondo.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;

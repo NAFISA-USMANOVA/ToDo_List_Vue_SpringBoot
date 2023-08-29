@@ -93,30 +93,46 @@ input {
 </style> -->
 
 <template>
-    <div class="d-flex justify-content-center align-items-center vh-100"> 
-        <div>
-            <h1 class="display-4 text-center mt-5">TO DO LIST</h1> 
-            <form @submit.prevent="agregarTarea">
-            <input v-model="nuevaTarea" class="form-control mb-2" placeholder="New task" required />
-            <button type="submit" class="btn1 btn-primary">Add Task</button>
-        </form>
-            <div class="mt-4">
-                <table class="table table-lg"> >
-                    <thead>
+    <div class="d-flex justify-content-center align-items-center vh-100">
+        <div class="">
+            
+        
+                
+                <button type="submit" class="btn1 btn-primary rounded">Add Task</button>
+           
+            <div class="mt-2  d-flex justify-content-between ">
+                <table class="table table-lg ">
+                    <thead class="">
                         <tr>
-                            <th>ID</th>
-                            <th>DAY</th>
+                            <th class="rounded-start">ID</th>
                             <th>EVENT</th>
-                            <th>ACTIONS</th>
+                            <th>DESCRIPTION</th>
+                            <th>DAY</th>
+                            <th class="rounded-end">ACTIONS</th>
+
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td></td>
-                            <td></td>
+                            <td class="rounded-start"></td>
                             <td></td>
                             <td>
-                                <a class="btn btn-warning  fa-solid fa-pen-to-square" ></a>
+                                <div class="dropdown d-flex justify-content-center align-items-center ">
+                                    <button class="btn btn-secondary btn-sml dropdown-toggle p-2 pb-1 pt-0" type="button"
+                                        id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+
+                                    </button>
+
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                        <li><button class="dropdown-item" type="button">Texto de Descripcion</button></li>
+
+                                    </ul>
+                                </div>
+                            </td>
+                            <td></td>
+
+                            <td  class="rounded-end">
+                                <a class="btn btn-warning  fa-solid fa-pen-to-square"></a>
                                 <a class="btn btn-danger fa fa-trash-alt"></a>
                             </td>
                         </tr>
@@ -125,10 +141,10 @@ input {
             </div>
         </div>
     </div>
-    </template>
+</template>
     
 
- <script setup>
+<script setup>
 
 
 
@@ -138,22 +154,21 @@ input {
 
 
 
-  <style>
-
-  h1 {
+<style>
+h1 {
     color: rgb(31, 161, 161);
-  }
- 
- .table {
-    width: 500px;
-    
- }
+}
 
- 
- .btn1 {
+.table {
+    width: 500px;
+
+}
+
+
+.btn1 {
     background-color: rgb(49, 168, 168);
- }
-  </style>
+}
+</style>
 
 
   
