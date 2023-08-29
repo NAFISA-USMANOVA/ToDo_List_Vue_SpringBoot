@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import FormView from '../views/FormView.vue'
+import FormPage from '../components/FormPage.vue'
 
 
 const router = createRouter({
@@ -14,7 +14,7 @@ const router = createRouter({
     {
       path: '/update',
       name: 'form',
-      component:FormView
+      component:FormPage
     }
   ]
 })
