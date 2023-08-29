@@ -8,6 +8,7 @@ import FooterToDo from './components/FooterToDo.vue';
 export default {
   name: 'App',
   components: {
+    RouterView,
     FormView,
     FooterToDo 
   }
