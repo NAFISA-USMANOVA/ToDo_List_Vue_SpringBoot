@@ -3,7 +3,7 @@
 </script>
 
 <template>
-<div class="d-flex justify-content-center align-items-center">
+<div class="d-flex justify-content-center align-items-center fondo">
     <form>
         <input type="text" class="form-control" v-model="id" disabled/>
         <input class="form-control mb-2" type="text" v-model="newTask" placeholder="New Event" required />
@@ -19,4 +19,10 @@
 </template>
 
 <style scoped>
+.fondo {
+  background-image: url("./assets/fondo.jpg");
+  /* background-repeat: no-repeat; */
+  /* background-size: cover; */
+  /* height: 100vh; */
+}
 </style>
