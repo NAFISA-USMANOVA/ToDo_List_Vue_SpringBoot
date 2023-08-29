@@ -29,3 +29,10 @@ a,
 
   
 }
+
+.fondo {
+  background-image: url(https://images6.alphacoders.com/542/thumbbig-542443.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}

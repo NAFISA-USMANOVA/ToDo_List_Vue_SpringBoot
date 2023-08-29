@@ -9,8 +9,8 @@ export default {
 }
 
 }
-</script>
 
+</script>
 <template>
   
   <div class="fondo">
