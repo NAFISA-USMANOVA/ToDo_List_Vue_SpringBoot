@@ -29,6 +29,8 @@ const saveTask = async () => {
     }
 };
 
+
+
 </script>
 
 <template>
@@ -41,8 +43,10 @@ const saveTask = async () => {
             <input class="form-control mb-2" type="text" v-model="description" placeholder="Description" />
             <!-- <input class="form-control mb-2" placeholder="Date" required /> -->
             <input type="date" class="form-control form-control-m mr-1" v-model="date" required />
-            <button type="submit" class="btn btn-success mt-3 mb-3">
-                Save</button>
+            
+                <router-link to="/"><button type="submit" class="btn btn-success btn-lg  rounded mt-5">Save</button></router-link>
+              
+
         </form>
     </div>
     </div>

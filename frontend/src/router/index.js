@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import FormPage from '../components/FormPage.vue'
-
+import TaskToDo from '../components/TaskToDo.vue'
 
 
 const router = createRouter({
@@ -12,6 +12,13 @@ const router = createRouter({
       name: 'home',
       component: HomeView
     },
+
+    {
+      path: '/',
+      name: 'table',
+      component: TaskToDo
+    },
+
     
     
     
