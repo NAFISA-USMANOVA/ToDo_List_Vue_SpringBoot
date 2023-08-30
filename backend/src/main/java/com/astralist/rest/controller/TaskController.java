@@ -33,13 +33,13 @@ public class TaskController {
         return taskService.saveTask(task);
     }
 
-    @PutMapping(path = "/{id}")
+    @PutMapping("/update/{id}")
     public String updateTask (@PathVariable int id, @RequestBody Task task) {
         task.setId(id);
         return (taskService.updateTask(task));
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
     public String deleteTask (@PathVariable Long id) {
         taskService.deleteTask(id);
         return "Task deleted with ID " + id;
