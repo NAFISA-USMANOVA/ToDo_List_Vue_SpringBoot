@@ -13,7 +13,7 @@
             height="40"
             class="d-inline-block align-text-top"
           />
-          MIS TAREAS DE ASTRONOMÍA
+          ASTRALIST
         </a>
       </div>
     </nav>
