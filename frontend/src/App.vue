@@ -1,14 +1,15 @@
 <script>
 import { RouterView } from 'vue-router';
 import FooterToDo from './components/FooterToDo.vue';
-
+import NavToDo from './components/NavToDo.vue';
 
 
 export default {
   name: 'App',
   components: {
     RouterView,
-    FooterToDo 
+    FooterToDo ,
+    NavToDo
   }
 }
 </script>
@@ -16,6 +17,7 @@ export default {
   <div  class="fondo">
     
     <main>
+      <NavToDo/>
       <RouterView />
       <FooterToDo/>
     </main>

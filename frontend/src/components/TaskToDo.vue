@@ -103,7 +103,6 @@ import { ref } from 'vue';
 const tasks = ref([]);
 
 const editIndex = ref(null);
-
 const editTask = (index) => {
   editIndex.value = index;
 };
