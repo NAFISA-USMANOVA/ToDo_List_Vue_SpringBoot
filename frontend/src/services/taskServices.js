@@ -6,19 +6,19 @@ class TaskDataService {
     }
   
     get(id) {
-      return http.get(`/tasks/${id}`);
+      return http.get(`/${id}`);
     }
   
     create(taskData) {
-      return http.post(`/tasks`, taskData);
+      return http.post(`/save`, taskData);
     }
   
     update(id, taskData) {
-      return http.put(`/tasks/update/${id}`, taskData);
+      return http.put(`/update/${id}`, taskData);
     }
   
     delete(id) {
-      return http.delete(`/tasks/delete/${id}`);
+      return http.delete(`/delete/${id}`);
     }
   }
   

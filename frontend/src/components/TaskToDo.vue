@@ -92,65 +92,79 @@ input {
 }
 </style> -->
 
-<template>
-    <div class="d-flex justify-content-center align-items-center vh-100">
-        <div class="">
-            
-        
-                
-                <button type="submit" class="btn1 btn-primary rounded">Add Task</button>
-           
-            <div class="mt-2  d-flex justify-content-between ">
-                <table class="table table-lg ">
-                    <thead class="">
-                        <tr>
-                            <th class="rounded-start">ID</th>
-                            <th>EVENT</th>
-                            <th>DESCRIPTION</th>
-                            <th>DAY</th>
-                            <th class="rounded-end">ACTIONS</th>
 
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="rounded-start"></td>
-                            <td></td>
-                            <td>
-                                <div class="dropdown d-flex justify-content-center align-items-center ">
-                                    <button class="btn btn-secondary btn-sml dropdown-toggle p-2 pb-1 pt-0" type="button"
-                                        id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
 
-                                    </button>
 
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                        <li><button class="dropdown-item" type="button">Texto de Descripcion</button></li>
-
-                                    </ul>
-                                </div>
-                            </td>
-                            <td></td>
-
-                            <td  class="rounded-end">
-                                <a class="btn btn-warning  fa-solid fa-pen-to-square"></a>
-                                <a class="btn btn-danger fa fa-trash-alt"></a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</template>
-    
 
 <script setup>
+
+import { ref } from 'vue';
+
+const tasks = ref([]);
+
+const editIndex = ref(null);
+
+const editTask = (index) => {
+  editIndex.value = index;
+};
+const deleteTask = (index) => {
+  tasks.value.splice(index, 1);
+};
 
 
 
 </script>
-  
-  
+
+
+
+
+<template>
+    <div class="d-flex justify-content-center align-items-center ">
+        <div class="m-5">
+            <router-link to="/update"><button type="submit" class="btn btn-primary btn-lg  rounded mt-5">Add Task</button></router-link>
+           
+            <div class="mt-2  d-flex justify-content-between">
+                <table class="table table-lg ">
+                    <thead class="">
+                        <tr>
+                            <th class="rounded-start">ID</th>
+                            <th>Event</th>
+                            <th>Description</th>
+                            <th>Date</th>
+                            <th class="rounded-end">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                       <tr v-for="(task, index) in tasks" :key="index">
+                            <td class="rounded-start">{{ task.id }}</td>
+                            <td>{{ task.event }}</td>
+                            <td>
+                                <div class="dropdown">
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle py-1 px-2"       type="button"     id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                        <li><button class="dropdown-item" type="button">Texto de Descripcion</button></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            </td>
+                            <td>{{ task.date }}</td>
+                            <td class="rounded-end">
+                                <a @click="editTask(index)" class="btn btn-warning  fa-solid fa-pen-to-square"></a>
+                                <a @click="deleteTask(index)" class="btn btn-danger fa fa-trash-alt"></a>
+                            </td>
+                       </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>   
+    </div>    
+</template>
+
+
+
+
 
 
 
@@ -168,6 +182,8 @@ h1 {
 .btn1 {
     background-color: rgb(49, 168, 168);
 }
+
+
 </style>
 
 

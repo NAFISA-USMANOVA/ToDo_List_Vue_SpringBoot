@@ -1,24 +1,25 @@
-<script >
-import HomeView from './views/HomeView.vue';
+<script>
+import { RouterView } from 'vue-router';
+import FooterToDo from './components/FooterToDo.vue';
+
 
 
 export default {
   name: 'App',
   components: {
-    HomeView
+    RouterView,
+    FooterToDo 
+  }
 }
-
-}
-
 </script>
 <template>
-  
-  <div class="fondo">
-   <HomeView/> 
+  <div  class="fondo">
+    
+    <main>
+      <RouterView />
+      <FooterToDo/>
+    </main>
   </div>
-  
-  
-
 </template>
 
 <style >
