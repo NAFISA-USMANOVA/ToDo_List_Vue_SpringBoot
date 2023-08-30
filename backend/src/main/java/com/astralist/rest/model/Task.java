@@ -16,14 +16,14 @@ public class Task {
     private String event;
     @Column(name = "description", nullable = false)
     private String description;
-    @Column(name = "day", nullable = false)
+    @Column(name = "date", nullable = false)
     private String date;
 
 
     public Task() {
     }
 
-    public Task(String event, String day, String description) {
+    public Task(String event,String description,String date) {
         this.event = event;
         this.description = description;
         this.date = date;
