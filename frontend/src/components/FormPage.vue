@@ -35,16 +35,16 @@ const saveTask = async () => {
 
 <template>
    
-    <div class="d-flex justify-content-center ">
-    <div class="m-5 ">
-        <form @submit.prevent="saveTask" class="m-5 ">
-            <input type="text" class="form-control mb-2 " name="id" placeholder="#" v-model="id" disabled />
+    <div class="d-flex justify-content-center align-items-center">
+    <div class="m-3 p-3 ">
+        <form @submit.prevent="saveTask">
+            <!--<input type="text" class="form-control mb-2 " name="id" placeholder="#" v-model="id" disabled />-->
             <input class="form-control mb-2" type="text" v-model="newTask" placeholder="New Task" required />
             <input class="form-control mb-2" type="text" v-model="description" placeholder="Description" />
-            <!-- <input class="form-control mb-2" placeholder="Date" required /> -->
+            
             <input type="date" class="form-control form-control-m mr-1" v-model="date" required />
             
-                <router-link to="/"><button type="submit" class="btn btn-success btn-lg  rounded mt-5">Save</button></router-link>
+                <router-link to="/"><button type="submit" class="btn btn-success btn-sm  rounded mt-3">Save</button></router-link>
               
 
         </form>

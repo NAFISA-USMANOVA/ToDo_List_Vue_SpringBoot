@@ -29,7 +29,7 @@ export default {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: rgba(86, 197, 191, 1);
+  background-color:  #85468269;
   padding: 5px;
   text-align: center;
   position: fixed;
@@ -40,9 +40,9 @@ export default {
 .developers {
   margin: 15px;
   text-decoration: none;
-  color: rgba(31, 6, 114, 1);
+  color: rgb(156, 154, 160);
 }
 h4 {
-  color: rgba(31, 6, 114, 1);
+  color: rgb(156, 154, 160);
 }
 </style>

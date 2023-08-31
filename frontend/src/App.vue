@@ -14,10 +14,16 @@ export default {
 }
 </script>
 <template>
-  <div  class="fondo">
+  <div  class="fondo ">
     
     <main>
       <NavToDo/>
+
+      <div class="d-flex justify-content-center align-items-center">
+    <div class="text-center ">
+      <h1 class="title display-4 my-3 font-weight-bold ">ASTRALIST</h1>
+    </div>
+  </div>
       <RouterView />
       <FooterToDo/>
     </main>
@@ -30,6 +36,16 @@ export default {
   background-image: url("./assets/fondo.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center center;
   height: 100vh;
 }
+
+.title {
+  color: rgb(224, 222, 228);
+  font-weight: bold;
+}
+
+
+  
+
 </style>

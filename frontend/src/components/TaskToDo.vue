@@ -98,17 +98,22 @@ input {
 
 <script setup>
 
-import { ref } from 'vue';
-
+import { ref, onBeforeMount } from 'vue';
+import taskServices from '../services/taskServices';
 const tasks = ref([]);
 
 const editIndex = ref(null);
 const editTask = (index) => {
-  editIndex.value = index;
+    editIndex.value = index;
 };
 const deleteTask = (index) => {
-  tasks.value.splice(index, 1);
+    tasks.value.splice(index, 1);
 };
+
+
+onBeforeMount(() => {
+   tasks.value = taskServices.getAll()
+})
 
 
 
@@ -118,47 +123,52 @@ const deleteTask = (index) => {
 
 
 <template>
-    <div class="d-flex justify-content-center align-items-center ">
-        <div class="m-5">
-            <router-link to="/update"><button type="submit" class="btn btn-primary btn-lg  rounded mt-5">Add Task</button></router-link>
-           
-            <div class="mt-2  d-flex justify-content-between">
-                <table class="table table-lg ">
-                    <thead class="">
-                        <tr>
-                            <th class="rounded-start">ID</th>
-                            <th>Event</th>
-                            <th>Description</th>
-                            <th>Date</th>
-                            <th class="rounded-end">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                       <tr v-for="(task, index) in tasks" :key="index">
-                            <td class="rounded-start">{{ task.id }}</td>
-                            <td>{{ task.event }}</td>
-                            <td>
-                                <div class="dropdown">
-                                <div class="dropdown">
-                                    <button class="btn btn-secondary dropdown-toggle py-1 px-2"       type="button"     id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-                                    </button>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                        <li><button class="dropdown-item" type="button">Texto de Descripcion</button></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            </td>
-                            <td>{{ task.date }}</td>
-                            <td class="rounded-end">
-                                <a @click="editTask(index)" class="btn btn-warning  fa-solid fa-pen-to-square"></a>
-                                <a @click="deleteTask(index)" class="btn btn-danger fa fa-trash-alt"></a>
-                            </td>
-                       </tr>
-                    </tbody>
-                </table>
+    <div class="d-flex justify-content-center align-items-center p-2 ">
+        <div class="m-3 ">
+            <router-link to="/update"><button type="submit" class="btn btn-primary btn-sm  rounded mt-3">Add
+                    Task</button></router-link>
+
+            <div class="mt-2   ">
+                <div class="table-responsive">
+                    <table class=" table ">
+                        <thead class="">
+                            <tr>
+                                <th class="rounded-start">ID</th>
+                                <th>Event</th>
+                                <th>Description</th>
+                                <th>Date</th>
+                                <th class="rounded-end">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="(task, index) in tasks" :key="index">
+                                <td class="rounded-start">{{ task.id }}</td>
+                                <td>{{ task.event }}</td>
+                                <td>
+                                    <div class="dropdown">
+                                        <div class="dropdown">
+                                            <button class="btn btn-secondary dropdown-toggle py-1 px-2" type="button"
+                                                id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                                            </button>
+                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                                <li><button class="dropdown-item" type="button">Texto de
+                                                        Descripcion</button></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>{{ task.date }}</td>
+                                <td class="rounded-end">
+                                    <a @click="editTask(index)" class="btn btn-warning  fa-solid fa-pen-to-square"></a>
+                                    <a @click="deleteTask(index)" class="btn btn-danger fa fa-trash-alt"></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>   
-    </div>    
+        </div>
+    </div>
 </template>
 
 
@@ -172,17 +182,12 @@ h1 {
     color: rgb(31, 161, 161);
 }
 
-.table {
-    width: 500px;
 
-}
 
 
 .btn1 {
     background-color: rgb(49, 168, 168);
 }
-
-
 </style>
 
 

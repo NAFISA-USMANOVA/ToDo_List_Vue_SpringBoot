@@ -4,7 +4,7 @@
 
 <template>
   <div>
-    <nav class="navbar" style="background-color: #56c5bf;">
+    <nav class="navbar" style="background-color: #85468241;">
       <div class="container-fluid">
         <a class="navbar-brand" href="#" style="font-weight: bold;">
           <img
@@ -14,7 +14,7 @@
             height="40"
             class="d-inline-block align-text-top"
           />
-          ASTRALIST
+          
         </a>
       </div>
     </nav>
