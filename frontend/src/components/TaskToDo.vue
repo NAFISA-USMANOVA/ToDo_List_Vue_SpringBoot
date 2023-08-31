@@ -101,18 +101,22 @@ input {
 import { ref, onBeforeMount } from 'vue';
 import taskServices from '../services/taskServices';
 const tasks = ref([]);
+const lastId = ref();
+
 
 const editIndex = ref(null);
 const editTask = (index) => {
     editIndex.value = index;
 };
-const deleteTask = (index) => {
-    tasks.value.splice(index, 1);
+const deleteTask = async(id) => {
+    await taskServices.delete(id);
+    tasks.value.data.pop(id);
 };
 
 
-onBeforeMount(() => {
-   tasks.value = taskServices.getAll()
+onBeforeMount(async() => {
+   tasks.value = await taskServices.getAll();
+   lastId.value = tasks.value.data[tasks.value.data.length - 1].id + 1;
 })
 
 
@@ -125,7 +129,7 @@ onBeforeMount(() => {
 <template>
     <div class="d-flex justify-content-center align-items-center p-2 ">
         <div class="m-3 ">
-            <router-link to="/update"><button type="submit" class="btn btn-primary btn-sm  rounded mt-3">Add
+            <router-link :to="'/update/' + lastId"><button type="submit" class="btn btn-primary btn-sm  rounded mt-3">Add
                     Task</button></router-link>
 
             <div class="mt-2   ">
@@ -141,7 +145,7 @@ onBeforeMount(() => {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="(task, index) in tasks" :key="index">
+                            <tr v-for="(task, index) in tasks.data" :key="index">
                                 <td class="rounded-start">{{ task.id }}</td>
                                 <td>{{ task.event }}</td>
                                 <td>
@@ -151,8 +155,8 @@ onBeforeMount(() => {
                                                 id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
                                             </button>
                                             <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                                <li><button class="dropdown-item" type="button">Texto de
-                                                        Descripcion</button></li>
+                                                <li><button class="dropdown-item" type="button">{{ task.description }}
+                                                        </button></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -160,7 +164,7 @@ onBeforeMount(() => {
                                 <td>{{ task.date }}</td>
                                 <td class="rounded-end">
                                     <a @click="editTask(index)" class="btn btn-warning  fa-solid fa-pen-to-square"></a>
-                                    <a @click="deleteTask(index)" class="btn btn-danger fa fa-trash-alt"></a>
+                                    <a @click="deleteTask(task.id)" class="btn btn-danger fa fa-trash-alt"></a>
                                 </td>
                             </tr>
                         </tbody>
@@ -177,7 +181,7 @@ onBeforeMount(() => {
 
 
 
-<style>
+<style scoped>
 h1 {
     color: rgb(31, 161, 161);
 }
