@@ -4,8 +4,6 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Date;
-
 @Entity
 @Table(name = "tasks")
 @Getter
@@ -16,14 +14,19 @@ public class Task {
     private int id;
     @Column(name = "event", nullable = false)
     private String event;
-    @Column(name = "day", nullable = false)
-    private String day;
+    @Column(name = "description", nullable = false)
+    private String description;
+    @Column(name = "date", nullable = false)
+    private String date;
+
 
     public Task() {
     }
 
-    public Task(String event, String day) {
+    public Task(String event,String description,String date) {
         this.event = event;
-        this.day = day;
+        this.description = description;
+        this.date = date;
+
     }
 }
